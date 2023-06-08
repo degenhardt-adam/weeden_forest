@@ -8,11 +8,14 @@ public class GridSystem : MonoBehaviour
     public int height;
     public GameObject gridPrefab;
     public GameObject[,] gridArray;
+    public Piece[,] pieceArray;
     public Camera cam;
+    public GameObject generatorPrefab;
 
     private void Start()
     {
         gridArray = new GameObject[width, height];
+        pieceArray = new Piece[width, height];
         CreateGrid();
 
         // Center the camera over the grid.
@@ -32,6 +35,26 @@ public class GridSystem : MonoBehaviour
                 GameObject newCell = Instantiate(gridPrefab, new Vector3(x, y, 0), Quaternion.identity);
                 newCell.transform.parent = transform;
                 gridArray[x, y] = newCell;
+            }
+        }
+    }
+
+    private void Update()
+    {
+         if (Input.GetMouseButtonDown(0))
+        {
+            Vector2 mouseWorldPosition = cam.ScreenToWorldPoint(Input.mousePosition);
+            int x = Mathf.FloorToInt(mouseWorldPosition.x + 0.5f);
+            int y = Mathf.FloorToInt(mouseWorldPosition.y + 0.5f);
+
+            if (x >= 0 && y >= 0 && x < width && y < height)
+            {
+                if (pieceArray[x, y] == null)
+                {
+                    GameObject newGenerator = Instantiate(generatorPrefab, new Vector3(x, y, 0), Quaternion.identity);
+                    Piece generatorPiece = newGenerator.GetComponent<Piece>();
+                    pieceArray[x, y] = generatorPiece;
+                }
             }
         }
     }
