@@ -119,3 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 4404306160829297048}
+  frontPiece: {fileID: 0}
+  rightPiece: {fileID: 0}
+  backPiece: {fileID: 0}
+  leftPiece: {fileID: 0}
