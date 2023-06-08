@@ -11,6 +11,7 @@ public class GridSystem : MonoBehaviour
     public Piece[,] pieceArray;
     public Camera cam;
     public GameObject generatorPrefab;
+    public TurnSystem turnSystem;
 
     private void Start()
     {
@@ -41,19 +42,23 @@ public class GridSystem : MonoBehaviour
 
     private void Update()
     {
-         if (Input.GetMouseButtonDown(0))
+        if (turnSystem.currentPhase == Phase.Editing)
         {
-            Vector2 mouseWorldPosition = cam.ScreenToWorldPoint(Input.mousePosition);
-            int x = Mathf.FloorToInt(mouseWorldPosition.x + 0.5f);
-            int y = Mathf.FloorToInt(mouseWorldPosition.y + 0.5f);
-
-            if (x >= 0 && y >= 0 && x < width && y < height)
+            if (Input.GetMouseButtonDown(0))
             {
-                if (pieceArray[x, y] == null)
+                Vector2 mouseWorldPosition = cam.ScreenToWorldPoint(Input.mousePosition);
+                int x = Mathf.FloorToInt(mouseWorldPosition.x + 0.5f);
+                int y = Mathf.FloorToInt(mouseWorldPosition.y + 0.5f);
+
+                if (x >= 0 && y >= 0 && x < width && y < height)
                 {
-                    GameObject newGenerator = Instantiate(generatorPrefab, new Vector3(x, y, 0), Quaternion.identity);
-                    Piece generatorPiece = newGenerator.GetComponent<Piece>();
-                    pieceArray[x, y] = generatorPiece;
+                    if (pieceArray[x, y] == null)
+                    {
+                        GameObject newGenerator = Instantiate(generatorPrefab, new Vector3(x, y, 0), Quaternion.identity);
+                        Piece generatorPiece = newGenerator.GetComponent<Piece>();
+                        pieceArray[x, y] = generatorPiece;
+                        turnSystem.AddGenerator(newGenerator.GetComponent<Generator>());
+                    }
                 }
             }
         }
