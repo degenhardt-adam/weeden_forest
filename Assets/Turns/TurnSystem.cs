@@ -6,13 +6,12 @@ public enum Phase { Editing, Player, Enemy }
 
 public class TurnSystem : MonoBehaviour
 {
+    public GridSystem gridSystem;
     public Phase currentPhase;
-    public List<Generator> generators;
 
     private void Start()
     {
         currentPhase = Phase.Editing;
-        generators = new List<Generator>();
     }
 
     private void Update()
@@ -37,20 +36,42 @@ public class TurnSystem : MonoBehaviour
         }
     }
 
-    public void AddGenerator(Generator generator)
-    {
-        generators.Add(generator);
-    }
-
     private IEnumerator ResolvePlayerPhase()
     {
-        foreach (Generator generator in generators)
+        foreach (var pos in gridSystem.activationOrder)
         {
-            yield return StartCoroutine(generator.Activate());
+            GameObject gridTile = gridSystem.gridArray[pos.x, pos.y];
+            // Change color to green
+            var spriteRenderer = gridTile.GetComponent<SpriteRenderer>();
+            spriteRenderer.color = Color.Lerp(spriteRenderer.color, Color.green, 0.5f);
+            
+            if (gridSystem.pieceArray[pos.x, pos.y] is not null)
+            {
+                yield return gridSystem.pieceArray[pos.x, pos.y].Activate();
+            }
+
+            // Change color back to white over time
+            StartCoroutine(FadeColorBackRoutine(spriteRenderer));
+
+            // Pause for x frames before next tile activation
+            for (int i = 0; i < 7; i++)
+            {
+                yield return null;
+            }
         }
 
-        // After all generators have activated, move to enemy phase
+        // Now that all player actions are resolved, proceed to the enemy phase
         currentPhase = Phase.Enemy;
     }
+
+    private IEnumerator FadeColorBackRoutine(SpriteRenderer spriteRenderer)
+    {
+        while (spriteRenderer.color != Color.white)
+        {
+            spriteRenderer.color = Color.Lerp(spriteRenderer.color, Color.white, 0.03f);
+            yield return null;
+        }
+    }
+
 }
 
