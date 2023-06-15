@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bc5a18f252e6471428f5d7b69c9e6a5c
+guid: 3bfe44fb59bbbbd429393af104507b01
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -131,8 +131,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ab1ae1079fb0c547b6edf04e7861ebb
-      internalID: 346988977
+      spriteID: d4278b8c9e37df34782c268795c37104
+      internalID: 1785022594
       vertices: []
       indices: 
       edges: []
@@ -152,8 +152,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a359227d1cca4e44fb3ef1e4b4c153ac
-      internalID: -203180349
+      spriteID: 70674ebd4d71ab544bfad7ee8b70adc0
+      internalID: -1211775053
       vertices: []
       indices: 
       edges: []
@@ -173,8 +173,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3260a7d94a2e0504ab4ccba64411c3c0
-      internalID: -809372067
+      spriteID: e3aadf29e301868419b9ee4d701d60df
+      internalID: -329295086
       vertices: []
       indices: 
       edges: []
@@ -194,239 +194,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 778e43d0ec32ae34187b325b6f6022df
-      internalID: 1184170358
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GeneratorSprite_4
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2abf1ca2d4152ec49ae955c9b017764b
-      internalID: -1682839375
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GeneratorSprite_5
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1595e238a8db40848a03d4592afc4728
-      internalID: -1295483643
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GeneratorSprite_6
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a3838f844fe6b314e9d167080444feb7
-      internalID: 1115442128
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GeneratorSprite_7
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1835b965587fb6140a2a16491ac0a1e0
-      internalID: -908678391
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GeneratorSprite_8
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d2b1f42f053c79f409a90ff54424375c
-      internalID: 2102990357
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GeneratorSprite_9
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 55cfc238053329e4ebba29cef3d2f9be
-      internalID: -367368792
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GeneratorSprite_10
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 01d9ac6636a924043b4b2151c04e0a8d
-      internalID: -150838312
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GeneratorSprite_11
-      rect:
-        serializedVersion: 2
-        x: 176
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 149a98524d7227d4ab597f76b9f1e1a5
-      internalID: 199718504
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GeneratorSprite_12
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7590f6c21efce304591679791911f329
-      internalID: 458710074
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GeneratorSprite_13
-      rect:
-        serializedVersion: 2
-        x: 208
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e6bc256d553ae904f9754af7c8e52852
-      internalID: -1889438444
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GeneratorSprite_14
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d6188797576b41a409714289ee47a259
-      internalID: -828066622
+      spriteID: d5f00f1f63bdcc945a824c11e30618ca
+      internalID: -715509872
       vertices: []
       indices: 
       edges: []
@@ -442,21 +211,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      GeneratorSprite_3: 1184170358
-      GeneratorSprite_11: 199718504
-      GeneratorSprite_10: -150838312
-      GeneratorSprite_12: 458710074
-      GeneratorSprite_14: -828066622
-      GeneratorSprite_0: 346988977
-      GeneratorSprite_7: -908678391
-      GeneratorSprite_4: -1682839375
-      GeneratorSprite_5: -1295483643
-      GeneratorSprite_2: -809372067
-      GeneratorSprite_8: 2102990357
-      GeneratorSprite_6: 1115442128
-      GeneratorSprite_9: -367368792
-      GeneratorSprite_13: -1889438444
-      GeneratorSprite_1: -203180349
+      GeneratorSprite_3: -715509872
+      GeneratorSprite_0: 1785022594
+      GeneratorSprite_2: -329295086
+      GeneratorSprite_1: -1211775053
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

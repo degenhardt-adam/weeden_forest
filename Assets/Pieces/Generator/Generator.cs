@@ -30,20 +30,8 @@ public class Generator : Piece
 
     public override IEnumerator Activate()
     {
-        yield return PlayAnimation("GeneratorOn");
-
-        // Activate attached devices
-        yield return PlayAnimation("GeneratorFront");
-        ActivateAttachment(frontPiece);
-
-        yield return PlayAnimation("GeneratorRight");
-        ActivateAttachment(rightPiece);
-
-        yield return PlayAnimation("GeneratorBack");
-        ActivateAttachment(backPiece);
-
-        yield return PlayAnimation("GeneratorLeft");
-        ActivateAttachment(leftPiece);
+        yield return PlayAnimation("GeneratorActivate");
+        powerManager.Power += 5;
     }
 
     private IEnumerator PlayAnimation(string stateName)
@@ -56,17 +44,5 @@ public class Generator : Piece
 
         // Wait for the animation to finish
         yield return new WaitWhile(() => animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1);
-    }
-
-    private void ActivateAttachment(Piece attachedPiece)
-    {
-        if (attachedPiece is null)
-        {
-            powerManager.Power += 1;
-        }
-        else
-        {
-            attachedPiece.Activate();
-        }
     }
 }
