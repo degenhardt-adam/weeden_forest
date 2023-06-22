@@ -36,7 +36,7 @@ public class GridSystem : MonoBehaviour
         {
             for (int y = 0; y < height; y++)
             {
-                GameObject newCell = Instantiate(gridPrefab, new Vector3(x, y, 0), Quaternion.identity);
+                GameObject newCell = Instantiate(gridPrefab, new Vector3(x, y, 1), Quaternion.identity);
                 newCell.transform.parent = transform;
                 gridArray[x, y] = newCell;
             }
