@@ -14,6 +14,17 @@ public class GridSystem : MonoBehaviour
     public GameObject[,] gridArray;
     public Piece[,] pieceArray;
     public List<Vector2Int> activationOrder;
+    public static GridSystem instance;
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogError("More than one GridSystem instance found!");
+            return;
+        }
+        instance = this;
+    }
 
     private void Start()
     {
@@ -60,15 +71,25 @@ public class GridSystem : MonoBehaviour
                         GameObject newGenerator = Instantiate(generatorPrefab, new Vector3(x, y, 0), Quaternion.identity);
                         Piece generatorPiece = newGenerator.GetComponent<Piece>();
                         pieceArray[x, y] = generatorPiece;
+                        generatorPiece.gridPosition = new Vector2Int(x, y);
                     }
                 }
             }
         }
     }
 
-    private bool IsInGrid(Vector2Int pos)
+    public bool IsInGrid(Vector2Int pos)
     {
         return pos.x >= 0 && pos.x < width && pos.y >= 0 && pos.y < height;
+    }
+
+    public GameObject InstantiateOnTile(GameObject prefab, Vector2Int pos)
+    {
+        if (IsInGrid(pos))
+        {
+            return Instantiate(prefab, gridArray[pos.x, pos.y].transform.position, Quaternion.identity);
+        }
+        else return null;
     }
 
     private void GenerateActivationOrder()
