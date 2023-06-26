@@ -9,11 +9,13 @@ public class GridSystem : MonoBehaviour
     public int height;
     public GameObject gridPrefab;
     public Camera cam;
-    public GameObject generatorPrefab;
+    public GameObject placementPrefab;
     public TurnSystem turnSystem;
+
     public GameObject[,] gridArray;
     public Piece[,] pieceArray;
     public List<Vector2Int> activationOrder;
+
     public static GridSystem instance;
 
     private void Awake()
@@ -64,15 +66,11 @@ public class GridSystem : MonoBehaviour
                 int x = Mathf.FloorToInt(mouseWorldPosition.x + 0.5f);
                 int y = Mathf.FloorToInt(mouseWorldPosition.y + 0.5f);
 
-                if (x >= 0 && y >= 0 && x < width && y < height)
+                Vector2Int pos = new Vector2Int(x, y);
+                if (IsInGrid(pos) && pieceArray[x, y] == null && placementPrefab != null)
                 {
-                    if (pieceArray[x, y] == null)
-                    {
-                        GameObject newGenerator = Instantiate(generatorPrefab, new Vector3(x, y, 0), Quaternion.identity);
-                        Piece generatorPiece = newGenerator.GetComponent<Piece>();
-                        pieceArray[x, y] = generatorPiece;
-                        generatorPiece.gridPosition = new Vector2Int(x, y);
-                    }
+                    GameObject newGenerator = InstantiateOnTile(placementPrefab, pos);
+                    AddPieceToTile(newGenerator.GetComponent<Piece>(), pos);
                 }
             }
         }
@@ -87,9 +85,19 @@ public class GridSystem : MonoBehaviour
     {
         if (IsInGrid(pos))
         {
-            return Instantiate(prefab, gridArray[pos.x, pos.y].transform.position, Quaternion.identity);
+            Vector3 tilePos = gridArray[pos.x, pos.y].transform.position;
+            return Instantiate(prefab, tilePos + new Vector3(0, 0, -1), Quaternion.identity);
         }
         else return null;
+    }
+
+    public void AddPieceToTile(Piece piece, Vector2Int tile)
+    {
+        if (pieceArray[tile.x, tile.y] == null)
+        {
+            pieceArray[tile.x, tile.y] = piece;
+            piece.gridPosition = tile;
+        }
     }
 
     private void GenerateActivationOrder()

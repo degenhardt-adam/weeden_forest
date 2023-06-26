@@ -3,10 +3,11 @@ using UnityEngine.UI;
 
 public class ShopItem : MonoBehaviour
 {
-    public static ShopItem selected;
     public static GameObject outline;
+    public GameObject devicePrefab;
     public Sprite indicatorSprite;
     private RectTransform rectTransform;
+    private GridSystem gridSystem;
 
     void Awake()
     {
@@ -26,20 +27,18 @@ public class ShopItem : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        gridSystem = GridSystem.instance;
+    }
+
     void Select()
     {
-        if (selected != null)
-        {
-            // Hide the outline of the previously selected item
-            outline.SetActive(false);
-        }
-
         // Show the outline of the newly selected item
+        outline.SetActive(true);
         outline.transform.position = transform.position;
         outline.GetComponent<RectTransform>().sizeDelta = rectTransform.sizeDelta + new Vector2(10, 10); // adjust as needed
-        outline.SetActive(true);
 
-        // Update the selected item
-        selected = this;
+        gridSystem.placementPrefab = devicePrefab;
     }
 }
