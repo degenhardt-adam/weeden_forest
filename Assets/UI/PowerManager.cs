@@ -5,6 +5,7 @@ public class PowerManager : MonoBehaviour
 {
     public TMP_Text powerText;
     private int power;
+    public int startingPower;
 
     public int Power
     {
@@ -18,7 +19,6 @@ public class PowerManager : MonoBehaviour
 
     void Start()
     {
-        // Initialize power to 0
-        Power = 0;
+        Power = startingPower;
     }
 }

@@ -9,8 +9,9 @@ public class GridSystem : MonoBehaviour
     public int height;
     public GameObject gridPrefab;
     public Camera cam;
-    public GameObject placementPrefab;
+    public ShopItem selectedShopItem;
     public TurnSystem turnSystem;
+    public PowerManager powerManager;
 
     public GameObject[,] gridArray;
     public Piece[,] pieceArray;
@@ -67,10 +68,14 @@ public class GridSystem : MonoBehaviour
                 int y = Mathf.FloorToInt(mouseWorldPosition.y + 0.5f);
 
                 Vector2Int pos = new Vector2Int(x, y);
-                if (IsInGrid(pos) && pieceArray[x, y] == null && placementPrefab != null)
+                if (IsInGrid(pos) && pieceArray[x, y] == null && selectedShopItem != null)
                 {
-                    GameObject newGenerator = InstantiateOnTile(placementPrefab, pos);
-                    AddPieceToTile(newGenerator.GetComponent<Piece>(), pos);
+                    if (powerManager.Power >= selectedShopItem.powerCost)
+                    {
+                        GameObject newGenerator = InstantiateOnTile(selectedShopItem.devicePrefab, pos);
+                        AddPieceToTile(newGenerator.GetComponent<Piece>(), pos);
+                        powerManager.Power -= selectedShopItem.powerCost;
+                    }
                 }
             }
         }
