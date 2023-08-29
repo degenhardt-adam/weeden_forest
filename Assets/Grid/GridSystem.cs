@@ -70,7 +70,7 @@ public class GridSystem : MonoBehaviour
                 Vector2Int pos = new Vector2Int(x, y);
                 if (IsInGrid(pos) && pieceArray[x, y] == null && selectedShopItem != null)
                 {
-                    if (powerManager.Power >= selectedShopItem.powerCost)
+					if (powerManager.Power >= selectedShopItem.powerCost)
                     {
                         GameObject newGenerator = InstantiateOnTile(selectedShopItem.devicePrefab, pos);
                         AddPieceToTile(newGenerator.GetComponent<Piece>(), pos);
