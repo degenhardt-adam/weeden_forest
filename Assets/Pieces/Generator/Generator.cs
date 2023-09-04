@@ -5,28 +5,10 @@ using UnityEngine;
 public class Generator : Piece
 {
     public Animator animator;
-    public PowerManager powerManager;
     public Piece frontPiece;
     public Piece rightPiece;
     public Piece backPiece;
     public Piece leftPiece;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        // Get the PowerManager
-        powerManager = FindObjectOfType<PowerManager>();
-        if (powerManager == null)
-        {
-            Debug.LogError("No PowerManager found in the scene.");
-        }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public override IEnumerator Activate()
     {
